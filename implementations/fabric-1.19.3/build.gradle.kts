@@ -18,7 +18,7 @@ plugins {
 group = "de.bluecolored.bluemap.fabric"
 version = System.getProperty("bluemap.version") ?: "?" // set by BlueMapCore
 
-val javaTarget = 11
+val javaTarget = 17
 java {
 	sourceCompatibility = JavaVersion.toVersion(javaTarget)
 	targetCompatibility = JavaVersion.toVersion(javaTarget)
@@ -58,10 +58,10 @@ dependencies {
 		exclude (group = "com.mojang", module = "brigadier")
 	}
 
-	minecraft ("com.mojang:minecraft:1.16.3")
-	mappings ("net.fabricmc:yarn:1.16.3+build.1:v2")
-	modImplementation ("net.fabricmc:fabric-loader:0.9.3+build.207")
-	modImplementation ("net.fabricmc.fabric-api:fabric-api:0.20.2+build.402-1.16")
+	minecraft ("com.mojang:minecraft:22w46a")
+	mappings ("net.fabricmc:yarn:22w46a+build.1:v2")
+	modImplementation ("net.fabricmc:fabric-loader:0.14.10")
+	modImplementation ("net.fabricmc.fabric-api:fabric-api:0.66.4+1.19.3")
 	modImplementation("me.lucko:fabric-permissions-api:0.1-SNAPSHOT")
 
 	testImplementation ("org.junit.jupiter:junit-jupiter:5.8.2")
@@ -141,7 +141,7 @@ modrinth {
 	versionNumber.set("${project.version}-${project.name}")
 	changelog.set("Releasenotes and Changelog:\nhttps://github.com/BlueMap-Minecraft/BlueMap/releases/tag/v${project.version}")
 	uploadFile.set(tasks.findByName("remappedShadowJar"))
-	gameVersions.addAll("1.16.2", "1.16.3", "1.16.4", "1.16.5")
+	gameVersions.addAll("1.19.3")
 	dependencies {
 		required.project("P7dR8mSH") // Fabric API
 	}
@@ -159,17 +159,8 @@ curseforge {
 
 		addGameVersion("Java 18")
 		addGameVersion("Java 17")
-		addGameVersion("Java 16")
-		addGameVersion("Java 15")
-		addGameVersion("Java 14")
-		addGameVersion("Java 13")
-		addGameVersion("Java 12")
-		addGameVersion("Java 11")
 
-		addGameVersion("1.16.2")
-		addGameVersion("1.16.3")
-		addGameVersion("1.16.4")
-		addGameVersion("1.16.5")
+		addGameVersion("1.19.3")
 
 		mainArtifact(tasks.findByName("remappedShadowJar"), closureOf<CurseArtifact> {
 			relations(closureOf<CurseRelation> {

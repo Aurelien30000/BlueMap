@@ -30,7 +30,7 @@
     "fabricloader": ">=0.11.3",
     "fabric": "*",
     "fabric-api-base": "*",
-    "minecraft": ">=1.19.0"
+    "minecraft": ">1.19.2"
   },
   "suggests": {}
 }
